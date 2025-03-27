@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizFleet - Premium Business Marketplace (Since 2025)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1E40AF;
+            --primary-green: #047857;
+            --accent-orange: #EA580C;
+            --light-gray: #F3F4F6;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Dynamic Currency */
+        .price-inr, .price-usd, .price-eur, .price-gbp {
+            display: none;
+        }
+        .currency-inr .price-inr,
+        .currency-usd .price-usd,
+        .currency-eur .price-eur,
+        .currency-gbp .price-gbp {
+            display: block;
+        }
+        
+        /* Original Styles (Unchanged) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: var(--primary-blue);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+        }
+        .business-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .business-card:hover {
+            transform: translateY(-5px);
+        }
+        .revenue-badge {
+            background-color: var(--primary-green);
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="currency-inr">
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/919876543210?text=I'm%20interested%20in%20your%20business" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Original Navbar (Unchanged) -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="#">BizFleet</a>
+        <div class="d-flex align-items-center">
+            <select id="currencySelector" class="form-select form-select-sm bg-dark text-white border-0 me-2">
+                <option value="inr">₹ INR</option>
+                <option value="usd">$ USD</option>
+                <option value="eur">€ EUR</option>
+                <option value="gbp">£ GBP</option>
+            </select>
+            <select id="countrySelector" class="form-select form-select-sm bg-dark text-white border-0">
+                <option value="global">🌍 Global</option>
+                <option value="in">🇮🇳 India</option>
+                <option value="us">🇺🇸 USA</option>
+                <option value="uk">🇬🇧 UK</option>
+            </select>
+        </div>
+    </div>
+</nav>
+
+<!-- Original Hero Section (Unchanged) -->
+<section class="hero-section">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <span class="trust-badge mb-3"><i class="fas fa-shield-alt me-2"></i>100% Verified Businesses</span>
+                <h1 class="display-4 fw-bold mb-4">Buy a <span class="text-warning">Ready-Made</span> Business & Start Earning Today</h1>
+                <div class="search-bar-container mb-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search businesses...">
+                        <button class="btn btn-warning" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded shadow-lg" alt="Business Dashboard">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Business Categories -->
+<div class="container my-4">
+    <div class="d-flex flex-wrap gap-2">
+        <span class="badge bg-primary active">All</span>
+        <span class="badge bg-secondary">E-commerce</span>
+        <span class="badge bg-secondary">SaaS</span>
+        <span class="badge bg-secondary">Blogs</span>
+        <span class="badge bg-secondary">Agency</span>
+    </div>
+</div>
+
+<!-- Featured Businesses (Now with Dynamic Filtering) -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold mb-5">Featured Businesses</h2>
+        
+        <!-- Our Premium Businesses -->
+        <h4 class="mb-3"><span class="badge bg-success">Our Premium Listings</span></h4>
+        <div class="row g-4 mb-5" id="ourBusinesses">
+            <!-- Business 1 -->
+            <div class="col-md-4 business-card" data-countries="in,us" data-category="e-commerce">
+                <div class="card h-100 shadow">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top">
+                        <span class="revenue-badge badge">$14K/mo</span>
+                    </div>
+                    <div class="card-body">
+                        <h5>Minimal Shopify Store</h5>
+                        <p class="text-muted">Fashion • 3 Years Old</p>
+                        
+                        <div class="price-inr">₹18,00,000</div>
+                        <div class="price-usd">$21,600</div>
+                        <div class="price-eur">€19,800</div>
+                        <div class="price-gbp">£17,300</div>
+                        
+                        <button class="btn btn-primary w-100 mt-3 contact-btn">
+                            <i class="fas fa-envelope me-2"></i>Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Other Listings -->
+        <h4 class="mb-3"><span class="badge bg-primary">Other Verified Listings</span></h4>
+        <div class="row g-4" id="otherListings">
+            <!-- Business 2 -->
+            <div class="col-md-4 business-card" data-countries="us,uk" data-category="saas">
+                <div class="card h-100 shadow">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" class="card-img-top">
+                        <span class="revenue-badge badge">$8.5K/mo</span>
+                    </div>
+                    <div class="card-body">
+                        <h5>SEO Analytics SaaS</h5>
+                        <p class="text-muted">Software • 2 Years Old</p>
+                        
+                        <div class="price-inr">₹75,00,000</div>
+                        <div class="price-usd">$90,000</div>
+                        <div class="price-eur">€82,000</div>
+                        <div class="price-gbp">£72,000</div>
+                        
+                        <button class="btn btn-outline-primary w-100 mt-3 contact-btn">
+                            <i class="fas fa-user me-2"></i>Contact Seller
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Popup -->
+<div id="contactPopup" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Contact Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Your Message"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // 1. Currency Converter
+    document.getElementById('currencySelector').addEventListener('change', function() {
+        document.body.className = 'currency-' + this.value;
+    });
+    
+    // 2. Location Filter
+    document.getElementById('countrySelector').addEventListener('change', function() {
+        const country = this.value;
+        const allBusinesses = document.querySelectorAll('.business-card');
+        
+        allBusinesses.forEach(business => {
+            if(country === 'global' || business.dataset.countries.includes(country)) {
+                business.style.display = 'block';
+            } else {
+                business.style.display = 'none';
+            }
+        });
+    });
+    
+    // 3. Category Filter
+    document.querySelectorAll('.badge.bg-secondary').forEach(badge => {
+        badge.addEventListener('click', function() {
+            const category = this.textContent.toLowerCase();
+            const allBusinesses = document.querySelectorAll('.business-card');
+            
+            // Highlight active category
+            document.querySelector('.badge.active').classList.remove('active');
+            this.classList.add('active');
+            
+            // Filter businesses
+            allBusinesses.forEach(business => {
+                if(category === 'all' || business.dataset.category.includes(category)) {
+                    business.style.display = 'block';
+                } else {
+                    business.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // 4. Contact Popup
+    const contactPopup = new bootstrap.Modal(document.getElementById('contactPopup'));
+    document.querySelectorAll('.contact-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            contactPopup.show();
+        });
+    });
+</script>
+</body>
+</html>

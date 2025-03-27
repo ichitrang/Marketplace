@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizMarket - Buy & Sell Established Businesses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff6b6b;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+        
+        /* Navbar */
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        .navbar-brand span {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+        }
+        
+        /* Business Cards */
+        .business-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .business-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .business-img {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .business-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .business-category {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .business-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .business-meta {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .profit-badge {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Filters */
+        .filter-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        /* Featured Badge */
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+            .hero-img {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-store"></i> <span>Biz</span>Market
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="businessDropdown" role="button" data-bs-toggle="dropdown">
+                            Businesses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">E-commerce</a></li>
+                            <li><a class="dropdown-item" href="#">SaaS</a></li>
+                            <li><a class="dropdown-item" href="#">Content Websites</a></li>
+                            <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">All Businesses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Success Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Resources</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-primary me-2">Login</a>
+                    <a href="#" class="btn btn-primary">Sell Your Business</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Buy & Sell Established Online Businesses</h1>
+                    <p class="lead mb-4">Join thousands of entrepreneurs buying and selling profitable businesses with verified revenue and traffic.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <a href="#" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-search me-2"></i> Browse Listings
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-dollar-sign me-2"></i> Sell Your Business
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center gap-4">
+                        <div class="d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="rounded-circle border border-2 border-white" width="40" style="margin-left: -10px;">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle border border-2 border-white" width="40" style="margin-left: -10px;">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" class="rounded-circle border border-2 border-white" width="40" style="margin-left: -10px;">
+                            <div class="rounded-circle bg-white d-flex align-items-center justify-content-center" style="width: 40px; margin-left: -10px;">
+                                <small class="fw-bold text-primary">1K+</small>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="mb-0 text-white-50">Trusted by <span class="fw-bold text-white">5,000+</span> entrepreneurs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded-3 shadow" alt="Business Marketplace">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-4 bg-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="text-center p-3">
+                        <h3 class="text-primary mb-1">1,250+</h3>
+                        <small class="text-muted">Active Listings</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center p-3">
+                        <h3 class="text-primary mb-1">$85M+</h3>
+                        <small class="text-muted">Total Sales Volume</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center p-3">
+                        <h3 class="text-primary mb-1">62</h3>
+                        <small class="text-muted">Countries</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center p-3">
+                        <h3 class="text-primary mb-1">24/7</h3>
+                        <small class="text-muted">Support</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold mb-3 mb-md-0">Featured Businesses For Sale</h2>
+                <div class="d-flex gap-3">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-filter me-2"></i> Filters
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Business Type</h6></li>
+                            <li><a class="dropdown-item" href="#">E-commerce</a></li>
+                            <li><a class="dropdown-item" href="#">SaaS</a></li>
+                            <li><a class="dropdown-item" href="#">Content</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Price Range</h6></li>
+                            <li><a class="dropdown-item" href="#">Under $50K</a></li>
+                            <li><a class="dropdown-item" href="#">$50K-$200K</a></li>
+                            <li><a class="dropdown-item" href="#">$200K+</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-sort me-2"></i> Sort By
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Highest Revenue</a></li>
+                            <li><a class="dropdown-item" href="#">Lowest Price</a></li>
+                            <li><a class="dropdown-item" href="#">Recently Added</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Business 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <span class="featured-badge">Featured</span>
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="business-img card-img-top" alt="E-commerce Business">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Luxury Watch E-commerce Store</h5>
+                                <span class="profit-badge">$14K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">E-commerce • 3 Years Old</p>
+                            <p class="card-text small mb-3">Profitable Shopify store specializing in luxury watches with 1,200+ products and 15% profit margin.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-chart-line me-1"></i> 8K visitors/mo</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.8 (120)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$189,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <span class="business-badge">New</span>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" class="business-img card-img-top" alt="SaaS Business">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">SEO Analytics SaaS Platform</h5>
+                                <span class="profit-badge">$8.5K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">SaaS • 2 Years Old</p>
+                            <p class="card-text small mb-3">Recurring revenue with 280+ paying customers. MRR growing at 12% monthly. Built with React/Node.js.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-users me-1"></i> 280 customers</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.6 (85)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$120,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="business-img card-img-top" alt="Blog Business">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Health & Wellness Blog</h5>
+                                <span class="profit-badge">$3.2K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">Content • 4 Years Old</p>
+                            <p class="card-text small mb-3">Authority site with 80K monthly visitors. Revenue from ads, affiliates, and digital products.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-chart-line me-1"></i> 80K visitors/mo</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.9 (210)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$95,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <span class="business-badge">Hot Deal</span>
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="business-img card-img-top" alt="Mobile App Business">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Fitness Tracking Mobile App</h5>
+                                <span class="profit-badge">$6.7K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">Mobile App • 18 Months Old</p>
+                            <p class="card-text small mb-3">Popular fitness app with 50K+ downloads and premium subscription model. iOS and Android versions.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-download me-1"></i> 50K downloads</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.7 (1.2K)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$150,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="business-img card-img-top" alt="Amazon FBA Business">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Amazon FBA Business</h5>
+                                <span class="profit-badge">$9.2K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">Amazon FBA • 2.5 Years Old</p>
+                            <p class="card-text small mb-3">Profitable Amazon FBA business with 15 SKUs in home goods category. Inventory management system included.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-boxes me-1"></i> 15 SKUs</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.5 (320)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$220,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="business-card card h-100">
+                        <div class="position-relative">
+                            <span class="business-badge">Reduced</span>
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="business-img card-img-top" alt="Digital Agency">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Digital Marketing Agency</h5>
+                                <span class="profit-badge">$12.5K/mo profit</span>
+                            </div>
+                            <p class="business-category mb-2">Service Business • 3 Years Old</p>
+                            <p class="card-text small mb-3">Established digital agency with 25+ retainer clients. Specializing in SEO and social media marketing.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-users me-1"></i> 25 clients</span>
+                                </div>
+                                <div>
+                                    <span class="business-meta"><i class="fas fa-star me-1 text-warning"></i> 4.9 (45)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="business-price mb-0">$175,000</h4>
+                                <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary px-4 py-2">
+                    <i class="fas fa-list me-2"></i> View All Listings
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">How BizMarket Works</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-search fs-3"></i>
+                        </div>
+                        <h4>1. Find Your Business</h4>
+                        <p>Browse our verified listings of profitable businesses across various niches and price ranges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-handshake fs-3"></i>
+                        </div>
+                        <h4>2. Connect & Negotiate</h4>
+                        <p>Communicate directly with sellers and negotiate terms through our secure platform.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                            <i class="fas fa-file-signature fs-3"></i>
+                        </div>
+                        <h4>3. Secure Transaction</h4>
+                        <p>Complete the purchase with our escrow protection and legal support for a smooth transfer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Success Stories</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="testimonial-img me-3">
+                            <div>
+                                <h6 class="mb-0">Sarah Johnson</h6>
+                                <small class="text-muted">Bought E-commerce Store</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Purchased a Shopify store through BizMarket and grew revenue by 60% in the first year. The verification process gave me confidence in the numbers."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-img me-3">
+                            <div>
+                                <h6 class="mb-0">Michael Chen</h6>
+                                <small class="text-muted">Sold SaaS Business</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Sold my SaaS business for 3.5x annual revenue. BizMarket connected me with serious buyers and handled all the legal paperwork."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img me-3">
+                            <div>
+                                <h6 class="mb-0">Elena Rodriguez</h6>
+                                <small class="text-muted">Bought Content Website</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"As a first-time buyer, I appreciated the thorough due diligence reports. The site has performed even better than expected!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-3">Ready to Buy or Sell a Business?</h2>
+            <p class="lead mb-4">Join thousands of entrepreneurs in our marketplace</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#" class="btn btn-light btn-lg px-4">
+                    <i class="fas fa-search me-2"></i> Browse Businesses
+                </a>
+                <a href="#" class="btn btn-outline-light btn-lg px-4">
+                    <i class="fas fa-store me-2"></i> List Your Business
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-store me-2"></i> BizMarket</h5>
+                    <p>The premier marketplace for buying and selling established online businesses.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="fw-bold mb-3">For Buyers</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">Browse Listings</a></li>
+                        <li class="mb-2"><a href="#">Buying Guide</a></li>
+                        <li class="mb-2"><a href="#">Due Diligence</a></li>
+                        <li class="mb-2"><a href="#">Financing Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="fw-bold mb-3">For Sellers</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">Sell Your Business</a></li>
+                        <li class="mb-2"><a href="#">Valuation Calculator</a></li>
+                        <li class="mb-2"><a href="#">Seller Fees</a></li>
+                        <li class="mb-2"><a href="#">Success Tips</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Our Team</a></li>
+                        <li class="mb-2"><a href="#">Careers</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#">Terms</a></li>
+                        <li class="mb-2"><a href="#">Privacy</a></li>
+                        <li class="mb-2"><a href="#">Escrow Policy</a></li>
+                        <li class="mb-2"><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0 small">© 2023 BizMarket. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 small">Making entrepreneurship accessible worldwide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="#" 
+       class="whatsapp-float" 
+       target="_blank"
+       id="whatsappButton"
+       data-bs-toggle="tooltip" 
+       title="Chat with us on WhatsApp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+        
+        // WhatsApp Button Smart Redirect
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || 
+                   (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+                   (navigator.userAgent.indexOf('Android') !== -1) ||
+                   (navigator.userAgent.indexOf('iPhone') !== -1);
+        }
+
+        // Set WhatsApp link based on device
+        const whatsappBtn = document.getElementById('whatsappButton');
+        const phoneNumber = '911234567890'; // Replace with your number
+        const defaultMessage = "Hi%20BizMarket,%20I'm%20interested%20in%20your%20business%20listings";
+        
+        if(isMobileDevice()) {
+            // Mobile - open WhatsApp app
+            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+        } else {
+            // Desktop - open WhatsApp Web
+            whatsappBtn.href = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${defaultMessage}`;
+        }
+    </script>
+</body>
+</html>
