@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Businesses for Sale | ContentDealFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --secondary: #3b82f6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --content-gradient: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+        
+        .content-hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .content-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .content-badge:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .content-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2rem;
+            background: white;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--content-gradient);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(15, 23, 42, 0.1);
+        }
+        
+        .content-card .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .content-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .mrr-badge {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .profit-badge {
+            background-color: rgba(22, 163, 74, 0.1);
+            color: #16a34a;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .filter-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+        }
+        
+        .filter-section h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--dark);
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .pagination .page-link {
+            color: var(--primary);
+        }
+        
+        .content-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(15, 23, 42, 0.05);
+        }
+        
+        /* Grid layout */
+        .results-container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .filters-column {
+            width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .listings-column {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Animated elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Content elements */
+        .content-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(226, 232, 240, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(226, 232, 240, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .content-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(226, 232, 240, 0.2) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Traffic source badges */
+        .traffic-badge {
+            font-size: 0.7rem;
+            border-radius: 4px;
+            padding: 3px 6px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .organic-badge {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+        
+        .social-badge {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+        
+        .referral-badge {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+        
+        .paid-badge {
+            background-color: rgba(244, 63, 94, 0.1);
+            color: #f43f5e;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 1199.98px) {
+            .listings-column {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .content-hero {
+                padding: 2.5rem 0;
+            }
+            
+            .content-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .results-container {
+                flex-direction: column;
+            }
+            
+            .filters-column {
+                width: 100%;
+            }
+            
+            .listings-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar .col-6 {
+                padding: 0.75rem;
+            }
+        }
+        
+        /* Mobile filter drawer */
+        .mobile-filter-btn {
+            display: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 991.98px) {
+            .mobile-filter-btn {
+                display: block;
+            }
+            
+            .filters-column {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 85%;
+                height: 100vh;
+                background: white;
+                z-index: 1050;
+                overflow-y: auto;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                padding: 1.5rem;
+                box-shadow: 4px 0 15px rgba(15, 23, 42, 0.1);
+            }
+            
+            .filters-column.show {
+                left: 0;
+            }
+            
+            .close-filter-btn {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: var(--primary);
+                z-index: 1;
+            }
+            
+            .filter-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(15, 23, 42, 0.5);
+                z-index: 1040;
+                display: none;
+                backdrop-filter: blur(5px);
+            }
+            
+            .filter-overlay.show {
+                display: block;
+            }
+        }
+        
+        /* Content refinements */
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            margin-bottom: 1.75rem;
+        }
+        
+        .filter-group-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.85rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-group-title i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .filter-option {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-option label {
+            font-size: 0.9rem;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #475569;
+        }
+        
+        .reset-filters {
+            color: var(--primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .reset-filters i {
+            margin-right: 5px;
+        }
+        
+        .reset-filters:hover {
+            text-decoration: underline;
+            color: #0d9e6f;
+        }
+        
+        .results-header {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+            grid-column: 1 / -1;
+        }
+        
+        .results-count {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        
+        .sort-dropdown .dropdown-toggle {
+            font-size: 0.95rem;
+            border-radius: 8px;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Currency selector styles */
+        .currency-selector {
+            margin-bottom: 1.5rem;
+        }
+        
+        .currency-selector select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+        
+        .currency-selector select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .converted-price {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 3px;
+        }
+        
+        /* Footer styles */
+        .content-footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 30%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .content-footer .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h5::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--content-gradient);
+            border-radius: 3px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Glow effect */
+        .glow {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Loading animation */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        /* Custom badge colors */
+        .badge.bg-purple {
+            background-color: #8b5cf6;
+        }
+        
+        .badge.bg-teal {
+            background-color: #14b8a6;
+        }
+        
+        .badge.bg-indigo {
+            background-color: #6366f1;
+        }
+        
+        .badge.bg-pink {
+            background-color: #ec4899;
+        }
+        
+        /* Traffic chart placeholder */
+        .traffic-chart {
+            height: 100px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .traffic-chart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                #10b981 0%, 
+                #10b981 35%, 
+                #3b82f6 35%, 
+                #3b82f6 65%, 
+                #8b5cf6 65%, 
+                #8b5cf6 85%, 
+                #ec4899 85%, 
+                #ec4899 100%);
+            opacity: 0.7;
+        }
+        
+        /* Author badge */
+        .author-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 3px 8px 3px 3px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+        
+        .author-badge img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        /* Niche tags */
+        .niche-tag {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #475569;
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .niche-tag:hover {
+            background-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" href="/">
+                <i class="fas fa-pen-fancy me-2"></i>
+                <span class="text-gradient">ContentDealFlow</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="businessTypesDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-layer-group me-1"></i> Marketplaces
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/ecommerce">Ecommerce</a></li>
+                            <li><a class="dropdown-item" href="/saas">SAAS</a></li>
+                            <li><a class="dropdown-item active" href="/blogs">Blogs</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/all">All Businesses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-bolt me-1"></i> Trending</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-1"></i> Analytics</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
+                    <a href="#" class="btn btn-primary glow"><i class="fas fa-plus me-1"></i> List Your Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="content-hero py-5">
+        <div class="content-grid"></div>
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-3">Premium Blog Businesses</h1>
+                    <p class="lead mb-4">Acquire profitable content websites with proven traffic, revenue streams, and growth potential</p>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-bar mb-4 position-relative">
+                        <i class="fas fa-search position-absolute" style="top: 14px; left: 18px; color: #94a3b8;"></i>
+                        <input type="text" class="form-control form-control-lg ps-4 bg-dark text-white border-dark" id="searchInput" placeholder="Search by niche, platform, or keyword...">
+                    </div>
+                    
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <a href="#listings" class="btn btn-primary btn-lg px-4 glow">
+                            <i class="fas fa-search me-2"></i>Browse Listings
+                        </a>
+                        <a href="#sell" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-rocket me-2"></i>Sell Your Blog
+                        </a>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="content-badge"><i class="fas fa-newspaper me-1"></i> News</span>
+                        <span class="content-badge"><i class="fas fa-utensils me-1"></i> Food</span>
+                        <span class="content-badge"><i class="fas fa-dumbbell me-1"></i> Fitness</span>
+                        <span class="content-badge"><i class="fas fa-coins me-1"></i> Finance</span>
+                        <span class="content-badge"><i class="fas fa-laptop-code me-1"></i> Tech</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="position-relative floating">
+                        <div class="content-dots"></div>
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded-3 shadow-lg" alt="Blog Business" style="border: 2px solid rgba(255,255,255,0.1);">
+                        <div class="position-absolute bottom-0 start-0 m-3">
+                            <span class="badge bg-primary pulse"><i class="fas fa-bolt me-1"></i> Hot Deal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="bg-white py-4 border-bottom stats-bar">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <h3 class="text-primary mb-1" id="totalListings">420+</h3>
+                        <small class="text-muted">Verified Blog Listings</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <h3 class="text-primary mb-1">65%+</h3>
+                        <small class="text-muted">With Multiple Revenue Streams</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <h3 class="text-primary mb-1">2.5-4x</h3>
+                        <small class="text-muted">Avg. Revenue Multiples</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <h3 class="text-primary mb-1">24h</h3>
+                        <small class="text-muted">Avg. Response Time</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container py-5 position-relative">
+        <div class="content-dots"></div>
+        
+        <!-- Mobile Filter Button -->
+        <div class="col-12 mobile-filter-btn">
+            <button class="btn btn-primary w-100 glow" id="showFiltersBtn">
+                <i class="fas fa-sliders-h me-2"></i>Show Filters
+            </button>
+        </div>
+        
+        <div class="results-container">
+            <!-- Filters Column -->
+            <div class="filters-column" id="filtersColumn">
+                <button class="close-filter-btn" id="closeFiltersBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="filter-header">
+                    <h5>Refine Results</h5>
+                    <a href="#" class="reset-filters" id="resetFilters">
+                        <i class="fas fa-sync-alt me-1"></i>Reset all
+                    </a>
+                </div>
+
+                <!-- Currency Selector -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-money-bill-wave"></i> Currency
+                        </div>
+                        <div class="currency-selector">
+                            <select id="currencySelect" class="form-select">
+                                <option value="USD">US Dollar (USD)</option>
+                                <option value="EUR">Euro (EUR)</option>
+                                <option value="GBP">British Pound (GBP)</option>
+                                <option value="INR">Indian Rupee (INR)</option>
+                                <option value="AUD">Australian Dollar (AUD)</option>
+                                <option value="CAD">Canadian Dollar (CAD)</option>
+                                <option value="JPY">Japanese Yen (JPY)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-tags"></i> Niche
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input category-filter" type="checkbox" value="finance" id="financeCheck" checked>
+                            <label class="form-check-label" for="financeCheck">
+                                Finance
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input category-filter" type="checkbox" value="tech" id="techCheck" checked>
+                            <label class="form-check-label" for="techCheck">
+                                Technology
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input category-filter" type="checkbox" value="health" id="healthCheck">
+                            <label class="form-check-label" for="healthCheck">
+                                Health & Fitness
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input category-filter" type="checkbox" value="lifestyle" id="lifestyleCheck">
+                            <label class="form-check-label" for="lifestyleCheck">
+                                Lifestyle
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input category-filter" type="checkbox" value="food" id="foodCheck">
+                            <label class="form-check-label" for="foodCheck">
+                                Food & Cooking
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Price Range Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-dollar-sign"></i> Price Range
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input price-filter" type="checkbox" value="0-100000" id="price1" checked>
+                            <label class="form-check-label" for="price1">Under $100K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input price-filter" type="checkbox" value="100000-500000" id="price2" checked>
+                            <label class="form-check-label" for="price2">$100K - $500K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input price-filter" type="checkbox" value="500000-1000000" id="price3">
+                            <label class="form-check-label" for="price3">$500K - $1M</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input price-filter" type="checkbox" value="1000000-10000000" id="price4">
+                            <label class="form-check-label" for="price4">$1M+</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Revenue Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-chart-line"></i> Monthly Revenue
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input revenue-filter" type="checkbox" value="0-5000" id="rev1" checked>
+                            <label class="form-check-label" for="rev1">Under $5K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input revenue-filter" type="checkbox" value="5000-20000" id="rev2" checked>
+                            <label class="form-check-label" for="rev2">$5K - $20K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input revenue-filter" type="checkbox" value="20000-50000" id="rev3">
+                            <label class="form-check-label" for="rev3">$20K - $50K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input revenue-filter" type="checkbox" value="50000-1000000" id="rev4">
+                            <label class="form-check-label" for="rev4">$50K+</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Platform Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-code"></i> Platform
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input platform-filter" type="checkbox" value="wordpress" id="wpCheck" checked>
+                            <label class="form-check-label" for="wpCheck">
+                                WordPress
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input platform-filter" type="checkbox" value="shopify" id="shopifyCheck" checked>
+                            <label class="form-check-label" for="shopifyCheck">
+                                Shopify
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input platform-filter" type="checkbox" value="ghost" id="ghostCheck">
+                            <label class="form-check-label" for="ghostCheck">
+                                Ghost
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input platform-filter" type="checkbox" value="custom" id="customCheck">
+                            <label class="form-check-label" for="customCheck">
+                                Custom CMS
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Traffic Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-users"></i> Monthly Traffic
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input traffic-filter" type="checkbox" value="0-10000" id="traffic1" checked>
+                            <label class="form-check-label" for="traffic1">Under 10K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input traffic-filter" type="checkbox" value="10000-50000" id="traffic2" checked>
+                            <label class="form-check-label" for="traffic2">10K - 50K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input traffic-filter" type="checkbox" value="50000-200000" id="traffic3">
+                            <label class="form-check-label" for="traffic3">50K - 200K</label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input traffic-filter" type="checkbox" value="200000-10000000" id="traffic4">
+                            <label class="form-check-label" for="traffic4">200K+</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monetization Filter -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="filter-group-title">
+                            <i class="fas fa-money-bill-alt"></i> Monetization
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input monetization-filter" type="checkbox" value="ads" id="adsCheck" checked>
+                            <label class="form-check-label" for="adsCheck">
+                                Display Ads
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input monetization-filter" type="checkbox" value="affiliate" id="affiliateCheck" checked>
+                            <label class="form-check-label" for="affiliateCheck">
+                                Affiliate Marketing
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input monetization-filter" type="checkbox" value="membership" id="membershipCheck">
+                            <label class="form-check-label" for="membershipCheck">
+                                Memberships
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input class="form-check-input monetization-filter" type="checkbox" value="digital" id="digitalCheck">
+                            <label class="form-check-label" for="digitalCheck">
+                                Digital Products
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Overlay (Mobile) -->
+            <div class="filter-overlay" id="filterOverlay"></div>
+            
+            <!-- Listings Column -->
+            <div class="listings-column">
+                <div class="results-header">
+                    <div class="results-count">
+                        <span id="visibleCount">24</span> results
+                        <small class="text-muted">Sorted by: <span id="sortMethod">Recently Added</span></small>
+                    </div>
+                    <div class="dropdown sort-dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-sort me-2"></i>Sort
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="revenue-desc">Highest Revenue</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="price-asc">Lowest Price</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="date-desc">Recently Added</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="traffic-desc">Highest Traffic</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="value-desc">Best Value</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="noResults" class="no-results hidden">
+                    <i class="fas fa-search fa-3x mb-3 text-muted"></i>
+                    <h4>No listings match your filters</h4>
+                    <p class="text-muted">Try adjusting your filters or search terms</p>
+                    <button class="btn btn-primary mt-2 glow" id="resetFiltersBtn">
+                        <i class="fas fa-sync-alt me-2"></i>Reset All Filters
+                    </button>
+                </div>
+                
+                <!-- Listing 1 -->
+                <div class="content-card listing" 
+                     data-category="finance" 
+                     data-price="275000" 
+                     data-revenue="12500" 
+                     data-profit="8750"
+                     data-platform="wordpress" 
+                     data-traffic="85000"
+                     data-monetization="ads,affiliate"
+                     data-age="4"
+                     data-date="2023-10-18">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-primary">Finance</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$12,500/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Personal Finance Blog</h4>
+                        <p class="text-muted mb-3">4 years old • 85K monthly visitors • 70% organic</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 60% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 25% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 10% Referral</span>
+                            <span class="traffic-badge paid-badge"><i class="fas fa-ad me-1"></i> 5% Paid</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> Mediavine</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> eBooks</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">investing</span>
+                            <span class="niche-tag">credit cards</span>
+                            <span class="niche-tag">saving</span>
+                            <span class="niche-tag">budgeting</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Established personal finance blog with strong domain authority (DA 48) and loyal readership. Multiple revenue streams including display ads, affiliate marketing, and digital products.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$275,000</h3>
+                                <div class="converted-price" data-price="275000"></div>
+                                <small class="text-muted">1.8x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 2 -->
+                <div class="content-card listing" 
+                     data-category="tech" 
+                     data-price="120000" 
+                     data-revenue="6500" 
+                     data-profit="4550"
+                     data-platform="wordpress" 
+                     data-traffic="45000"
+                     data-monetization="ads,affiliate"
+                     data-age="2"
+                     data-date="2023-10-15">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-indigo">Technology</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$6,500/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">AI & Tech News Blog</h4>
+                        <p class="text-muted mb-3">2 years old • 45K monthly visitors • Viral growth</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 40% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 45% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 10% Referral</span>
+                            <span class="traffic-badge paid-badge"><i class="fas fa-ad me-1"></i> 5% Paid</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> Ezoic</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-newspaper me-1"></i> Sponsorships</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">artificial intelligence</span>
+                            <span class="niche-tag">gadgets</span>
+                            <span class="niche-tag">software</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Fast-growing tech blog covering AI developments, gadget reviews, and software tutorials. Strong social media presence with viral potential on trending topics.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$120,000</h3>
+                                <div class="converted-price" data-price="120000"></div>
+                                <small class="text-muted">1.5x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 3 -->
+                <div class="content-card listing" 
+                     data-category="health" 
+                     data-price="450000" 
+                     data-revenue="18500" 
+                     data-profit="12950"
+                     data-platform="shopify" 
+                     data-traffic="120000"
+                     data-monetization="affiliate,digital"
+                     data-age="5"
+                     data-date="2023-10-12">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-teal">Health & Fitness</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$18,500/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Fitness & Nutrition Blog</h4>
+                        <p class="text-muted mb-3">5 years old • 120K monthly visitors • 80% organic</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 80% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 15% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 5% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> eBooks</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-utensils me-1"></i> Meal Plans</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">weight loss</span>
+                            <span class="niche-tag">nutrition</span>
+                            <span class="niche-tag">workouts</span>
+                            <span class="niche-tag">supplements</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Authority health and fitness blog with strong email list (35K subscribers) and multiple digital products. High domain authority (DA 52) and excellent backlink profile.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$450,000</h3>
+                                <div class="converted-price" data-price="450000"></div>
+                                <small class="text-muted">2x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 4 -->
+                <div class="content-card listing" 
+                     data-category="food" 
+                     data-price="85000" 
+                     data-revenue="4200" 
+                     data-profit="2940"
+                     data-platform="wordpress" 
+                     data-traffic="28000"
+                     data-monetization="ads,affiliate"
+                     data-age="3"
+                     data-date="2023-10-10">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-pink">Food & Cooking</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$4,200/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Recipe Blog</h4>
+                        <p class="text-muted mb-3">3 years old • 28K monthly visitors • Pinterest traffic</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 30% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 65% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 5% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> AdThrive</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> Cookbook</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">vegetarian</span>
+                            <span class="niche-tag">meal prep</span>
+                            <span class="niche-tag">baking</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Popular recipe blog with strong Pinterest presence. Includes professionally designed cookbook and kitchen product affiliate partnerships. Well-optimized for food SEO.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$85,000</h3>
+                                <div class="converted-price" data-price="85000"></div>
+                                <small class="text-muted">1.7x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 5 -->
+                <div class="content-card listing" 
+                     data-category="lifestyle" 
+                     data-price="320000" 
+                     data-revenue="15000" 
+                     data-profit="10500"
+                     data-platform="wordpress" 
+                     data-traffic="95000"
+                     data-monetization="ads,membership"
+                     data-age="6"
+                     data-date="2023-10-08">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-purple">Lifestyle</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$15,000/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Minimalist Living Blog</h4>
+                        <p class="text-muted mb-3">6 years old • 95K monthly visitors • 1,200 members</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 75% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 20% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 5% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> Mediavine</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-users me-1"></i> Memberships</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> Courses</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">minimalism</span>
+                            <span class="niche-tag">sustainability</span>
+                            <span class="niche-tag">productivity</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Established lifestyle blog with premium membership community and courses. Strong brand identity and engaged audience with multiple monetization streams.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$320,000</h3>
+                                <div class="converted-price" data-price="320000"></div>
+                                <small class="text-muted">1.8x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 6 -->
+                <div class="content-card listing" 
+                     data-category="finance" 
+                     data-price="750000" 
+                     data-revenue="35000" 
+                     data-profit="24500"
+                     data-platform="custom" 
+                     data-traffic="250000"
+                     data-monetization="ads,affiliate,digital"
+                     data-age="8"
+                     data-date="2023-10-05">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-primary">Finance</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$35,000/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Investment Research Blog</h4>
+                        <p class="text-muted mb-3">8 years old • 250K monthly visitors • DA 65</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 85% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 10% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 5% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> AdThrive</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> Research Reports</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-users me-1"></i> Premium</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">stocks</span>
+                            <span class="niche-tag">crypto</span>
+                            <span class="niche-tag">real estate</span>
+                            <span class="niche-tag">retirement</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Premium investment research blog with custom CMS and high-value audience. Multiple revenue streams including premium subscriptions, research reports, and high-ticket affiliate offers.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$750,000</h3>
+                                <div class="converted-price" data-price="750000"></div>
+                                <small class="text-muted">1.8x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 7 -->
+                <div class="content-card listing" 
+                     data-category="tech" 
+                     data-price="180000" 
+                     data-revenue="9500" 
+                     data-profit="6650"
+                     data-platform="ghost" 
+                     data-traffic="60000"
+                     data-monetization="ads,sponsorships"
+                     data-age="3"
+                     data-date="2023-10-03">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-indigo">Technology</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$9,500/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Developer Tools Blog</h4>
+                        <p class="text-muted mb-3">3 years old • 60K monthly visitors • Technical audience</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 70% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 20% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 10% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-ad me-1"></i> Carbon Ads</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-newspaper me-1"></i> Sponsorships</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-book me-1"></i> Courses</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">programming</span>
+                            <span class="niche-tag">web development</span>
+                            <span class="niche-tag">tools</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Technical blog for developers with premium sponsorships and courses. Ghost CMS with custom integrations and strong backlink profile from industry resources.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$180,000</h3>
+                                <div class="converted-price" data-price="180000"></div>
+                                <small class="text-muted">1.6x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listing 8 -->
+                <div class="content-card listing" 
+                     data-category="health" 
+                     data-price="550000" 
+                     data-revenue="25000" 
+                     data-profit="17500"
+                     data-platform="wordpress" 
+                     data-traffic="180000"
+                     data-monetization="affiliate,digital,membership"
+                     data-age="7"
+                     data-date="2023-10-01">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Blog Business">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-teal">Health & Fitness</span>
+                            <div class="text-end">
+                                <span class="mrr-badge">$25,000/mo</span>
+                                <span class="profit-badge d-block mt-1">70% margin</span>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-2">Yoga & Wellness Blog</h4>
+                        <p class="text-muted mb-3">7 years old • 180K monthly visitors • 5K members</p>
+                        
+                        <!-- Traffic breakdown -->
+                        <div class="traffic-chart mb-3"></div>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="traffic-badge organic-badge"><i class="fas fa-search me-1"></i> 75% Organic</span>
+                            <span class="traffic-badge social-badge"><i class="fas fa-share-alt me-1"></i> 20% Social</span>
+                            <span class="traffic-badge referral-badge"><i class="fas fa-link me-1"></i> 5% Referral</span>
+                        </div>
+                        
+                        <!-- Monetization badges -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-light text-dark"><i class="fas fa-link me-1"></i> Affiliate</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-users me-1"></i> Memberships</span>
+                            <span class="badge bg-light text-dark"><i class="fas fa-video me-1"></i> Courses</span>
+                        </div>
+                        
+                        <!-- Niche tags -->
+                        <div class="mb-3">
+                            <span class="niche-tag">yoga</span>
+                            <span class="niche-tag">meditation</span>
+                            <span class="niche-tag">wellness</span>
+                            <span class="niche-tag">mindfulness</span>
+                        </div>
+                        
+                        <p class="card-text mb-4">Authority yoga and wellness blog with premium membership site and video courses. Strong brand recognition in the space with multiple high-ticket revenue streams.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-0">$550,000</h3>
+                                <div class="converted-price" data-price="550000"></div>
+                                <small class="text-muted">1.8x revenue multiple</small>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-outline-primary me-2"><i class="far fa-heart"></i></a>
+                                <a href="#" class="btn btn-primary glow"><i class="fas fa-eye me-1"></i> View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4 grid-column-full">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="content-footer">
+        <div class="content-dots"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a class="navbar-brand fw-bold fs-3 d-flex align-items-center mb-3" href="/">
+                        <i class="fas fa-pen-fancy me-2"></i>
+                        <span class="text-gradient">ContentDealFlow</span>
+                    </a>
+                    <p class="text-muted mb-4">The premier marketplace for buying and selling profitable content websites and blog businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Marketplaces</h5>
+                        <ul>
+                            <li><a href="#">Blog Businesses</a></li>
+                            <li><a href="#">Content Sites</a></li>
+                            <li><a href="#">Ecommerce</a></li>
+                            <li><a href="#">SAAS</a></li>
+                            <li><a href="#">All Listings</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Resources</h5>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Valuation Tool</a></li>
+                            <li><a href="#">Guides</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <div class="footer-links">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">GDPR</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2023 ContentDealFlow. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for content creators</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Filter Functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all listings and filters
+            const listings = document.querySelectorAll('.listing');
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const priceFilters = document.querySelectorAll('.price-filter');
+            const revenueFilters = document.querySelectorAll('.revenue-filter');
+            const platformFilters = document.querySelectorAll('.platform-filter');
+            const trafficFilters = document.querySelectorAll('.traffic-filter');
+            const monetizationFilters = document.querySelectorAll('.monetization-filter');
+            const searchInput = document.getElementById('searchInput');
+            const resetFiltersBtn = document.getElementById('resetFilters');
+            const resetFiltersBtn2 = document.getElementById('resetFiltersBtn');
+            const noResults = document.getElementById('noResults');
+            const visibleCount = document.getElementById('visibleCount');
+            const sortOptions = document.querySelectorAll('.sort-option');
+            const sortMethod = document.getElementById('sortMethod');
+            const currencySelect = document.getElementById('currencySelect');
+            
+            // Mobile filter elements
+            const showFiltersBtn = document.getElementById('showFiltersBtn');
+            const closeFiltersBtn = document.getElementById('closeFiltersBtn');
+            const filtersColumn = document.getElementById('filtersColumn');
+            const filterOverlay = document.getElementById('filterOverlay');
+            
+            // Currency exchange rates (simplified - in a real app, fetch these from an API)
+            const exchangeRates = {
+                USD: { rate: 1, symbol: '$' },
+                EUR: { rate: 0.92, symbol: '€' },
+                GBP: { rate: 0.79, symbol: '£' },
+                INR: { rate: 83.12, symbol: '₹' },
+                AUD: { rate: 1.52, symbol: 'A$' },
+                CAD: { rate: 1.36, symbol: 'C$' },
+                JPY: { rate: 151.42, symbol: '¥' }
+            };
+            
+            // Current currency
+            let currentCurrency = 'USD';
+            
+            // Initial count update
+            updateVisibleCount();
+            
+            // Mobile filter toggle
+            showFiltersBtn.addEventListener('click', function() {
+                filtersColumn.classList.add('show');
+                filterOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeFiltersBtn.addEventListener('click', function() {
+                filtersColumn.classList.remove('show');
+                filterOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+            
+            filterOverlay.addEventListener('click', function() {
+                filtersColumn.classList.remove('show');
+                filterOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+            
+            // Reset filters buttons
+            resetFiltersBtn.addEventListener('click', resetFilters);
+            resetFiltersBtn2.addEventListener('click', resetFilters);
+            
+            // Currency change handler
+            currencySelect.addEventListener('change', function() {
+                currentCurrency = this.value;
+                convertPrices();
+            });
+            
+            // Real-time filtering
+            function setupFilterListeners() {
+                // Category filters
+                categoryFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Price filters
+                priceFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Revenue filters
+                revenueFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Platform filters
+                platformFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Traffic filters
+                trafficFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Monetization filters
+                monetizationFilters.forEach(filter => {
+                    filter.addEventListener('change', filterListings);
+                });
+                
+                // Search input
+                searchInput.addEventListener('keyup', filterListings);
+            }
+            
+            // Sort options
+            sortOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sortBy = this.getAttribute('data-sort');
+                    sortListings(sortBy);
+                    sortMethod.textContent = this.textContent;
+                });
+            });
+            
+            // Convert prices to selected currency
+            function convertPrices() {
+                const currencyData = exchangeRates[currentCurrency];
+                const symbol = currencyData.symbol;
+                const rate = currencyData.rate;
+                
+                listings.forEach(listing => {
+                    const priceElement = listing.querySelector('h3.mb-0');
+                    const convertedPriceElement = listing.querySelector('.converted-price');
+                    const originalPrice = parseFloat(listing.getAttribute('data-price'));
+                    
+                    if (currentCurrency === 'USD') {
+                        priceElement.textContent = `$${originalPrice.toLocaleString()}`;
+                        convertedPriceElement.textContent = '';
+                    } else {
+                        const convertedPrice = originalPrice * rate;
+                        priceElement.textContent = `${symbol}${Math.round(convertedPrice).toLocaleString()}`;
+                        convertedPriceElement.textContent = `≈ $${originalPrice.toLocaleString()}`;
+                    }
+                });
+            }
+            
+            // Filter listings function
+            function filterListings() {
+                const selectedCategories = getSelectedValues('.category-filter');
+                const selectedPriceRanges = getSelectedValues('.price-filter');
+                const selectedRevenueRanges = getSelectedValues('.revenue-filter');
+                const selectedPlatforms = getSelectedValues('.platform-filter');
+                const selectedTrafficRanges = getSelectedValues('.traffic-filter');
+                const selectedMonetizations = getSelectedValues('.monetization-filter');
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                let visibleItems = 0;
+                
+                listings.forEach(listing => {
+                    const category = listing.getAttribute('data-category');
+                    const price = parseFloat(listing.getAttribute('data-price'));
+                    const revenue = parseFloat(listing.getAttribute('data-revenue'));
+                    const platform = listing.getAttribute('data-platform');
+                    const traffic = parseFloat(listing.getAttribute('data-traffic'));
+                    const monetization = listing.getAttribute('data-monetization').split(',');
+                    const title = listing.querySelector('.card-title').textContent.toLowerCase();
+                    const description = listing.querySelector('.card-text').textContent.toLowerCase();
+                    
+                    // Check if listing matches all selected filters
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+                    const priceMatch = selectedPriceRanges.length === 0 || checkRange(price, selectedPriceRanges);
+                    const revenueMatch = selectedRevenueRanges.length === 0 || checkRange(revenue, selectedRevenueRanges);
+                    const platformMatch = selectedPlatforms.length === 0 || selectedPlatforms.includes(platform);
+                    const trafficMatch = selectedTrafficRanges.length === 0 || checkRange(traffic, selectedTrafficRanges);
+                    const monetizationMatch = selectedMonetizations.length === 0 || selectedMonetizations.some(m => monetization.includes(m));
+                    const searchMatch = searchTerm === '' || 
+                                        title.includes(searchTerm) || 
+                                        description.includes(searchTerm);
+                    
+                    if (categoryMatch && priceMatch && revenueMatch && platformMatch && trafficMatch && monetizationMatch && searchMatch) {
+                        listing.classList.remove('hidden');
+                        visibleItems++;
+                    } else {
+                        listing.classList.add('hidden');
+                    }
+                });
+                
+                // Show no results message if needed
+                if (visibleItems === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+                
+                // Update visible count
+                visibleCount.textContent = visibleItems;
+            }
+            
+            // Reset all filters
+            function resetFilters() {
+                // Uncheck all filters
+                document.querySelectorAll('.form-check-input').forEach(filter => {
+                    filter.checked = false;
+                });
+                
+                // Check default filters
+                document.querySelectorAll('.category-filter').forEach(filter => {
+                    if (['finance', 'tech'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                document.querySelectorAll('.price-filter').forEach(filter => {
+                    if (['0-100000', '100000-500000'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                document.querySelectorAll('.revenue-filter').forEach(filter => {
+                    if (['0-5000', '5000-20000'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                document.querySelectorAll('.platform-filter').forEach(filter => {
+                    if (['wordpress', 'shopify'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                document.querySelectorAll('.traffic-filter').forEach(filter => {
+                    if (['0-10000', '10000-50000'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                document.querySelectorAll('.monetization-filter').forEach(filter => {
+                    if (['ads', 'affiliate'].includes(filter.value)) {
+                        filter.checked = true;
+                    }
+                });
+                
+                // Reset currency to USD
+                currencySelect.value = 'USD';
+                currentCurrency = 'USD';
+                
+                // Clear search
+                searchInput.value = '';
+                
+                // Reset sort
+                sortMethod.textContent = 'Recently Added';
+                
+                // Apply reset
+                filterListings();
+                sortListings('date-desc');
+                convertPrices();
+                
+                // Close mobile filters if open
+                filtersColumn.classList.remove('show');
+                filterOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            
+            // Sort listings function
+            function sortListings(sortBy) {
+                const listingsContainer = document.querySelector('.listings-column');
+                const listingsArray = Array.from(listings).filter(listing => !listing.classList.contains('hidden'));
+                
+                listingsArray.sort((a, b) => {
+                    switch(sortBy) {
+                        case 'revenue-desc':
+                            return parseFloat(b.getAttribute('data-revenue')) - parseFloat(a.getAttribute('data-revenue'));
+                        case 'price-asc':
+                            return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                        case 'date-desc':
+                            return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+                        case 'traffic-desc':
+                            return parseFloat(b.getAttribute('data-traffic')) - parseFloat(a.getAttribute('data-traffic'));
+                        case 'value-desc':
+                            const aValue = parseFloat(a.getAttribute('data-revenue')) / parseFloat(a.getAttribute('data-price'));
+                            const bValue = parseFloat(b.getAttribute('data-revenue')) / parseFloat(b.getAttribute('data-price'));
+                            return bValue - aValue;
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Re-append sorted listings
+                listingsArray.forEach(listing => {
+                    listingsContainer.appendChild(listing);
+                });
+            }
+            
+            // Helper function to get selected filter values
+            function getSelectedValues(selector) {
+                const selected = [];
+                document.querySelectorAll(selector).forEach(filter => {
+                    if (filter.checked) {
+                        selected.push(filter.value);
+                    }
+                });
+                return selected;
+            }
+            
+            // Helper function to check if value falls within any of the ranges
+            function checkRange(value, ranges) {
+                return ranges.some(range => {
+                    const [min, max] = range.split('-').map(Number);
+                    return value >= min && value <= max;
+                });
+            }
+            
+            // Helper function to update visible count
+            function updateVisibleCount() {
+                const visible = document.querySelectorAll('.listing:not(.hidden)').length;
+                visibleCount.textContent = visible;
+            }
+            
+            // Initialize with default filters and listeners
+            setupFilterListeners();
+            filterListings();
+            convertPrices();
+            
+            // Add glow effect to buttons on hover
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.classList.add('glow');
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.classList.remove('glow');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
